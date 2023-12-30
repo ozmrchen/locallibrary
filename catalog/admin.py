@@ -21,9 +21,9 @@ admin.site.register(Author, AuthorAdmin)
 
 
 # Register the Admin classes for Book using the decorator
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'display_genre')
+# @admin.register(Book)
+# class BookAdmin(admin.ModelAdmin):
+#     list_display = ('title', 'author', 'display_genre')
 
 
 # Register the Admin classes for BookInstance using the decorator
@@ -39,3 +39,16 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('status', 'due_back')
         }),
     )
+
+
+# Inline editing of associated records
+class BooksInstanceInline(admin.TabularInline):
+    model = BookInstance
+    extra = 0
+
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'display_genre')
+
+    inlines = [BooksInstanceInline]
