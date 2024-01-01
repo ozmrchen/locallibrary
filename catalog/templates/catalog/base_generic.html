@@ -23,6 +23,10 @@
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'books' %}">All books</a></li>
                     <li><a href="">All authors</a></li>
+                    <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+                    {% if perms.catalog.add_author %}
+                        <li><a href="">Create author</a></li>
+                    {% endif %}
                 </ul>
 
                 {% if user.is_authenticated %}
