@@ -146,4 +146,4 @@ STORAGES = {
     },
 }
 
-CSRF_TRUSTED_ORIGINS = ['locallibrary24.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://locallibrary24.up.railway.app']
